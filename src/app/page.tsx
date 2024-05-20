@@ -4,6 +4,7 @@ import { Banner } from '@/components/Banner'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { JoinCommunity } from '@/components/JoinCommunity'
+import { Navbar } from '@/components/Navbar'
 import { Properties } from '@/components/Properties'
 import { Services } from '@/components/Services'
 import { TransitionPage } from '@/components/TransitionPage'
@@ -20,12 +21,14 @@ export default function Home() {
 
   return (
     <>
-      <TransitionPage />
+     <TransitionPage />
       <Header />
+
       <main>
         <Banner />
         <Properties />
         <div className="max-w-6xl mx-auto">
+          
           <Services />
           <LocationMap />
           <About />

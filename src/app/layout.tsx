@@ -5,8 +5,8 @@ import './globals.css'
 const quickSand = Quicksand({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Real State - TarreDev',
-  description: 'Aplicación creada del video de Youtube de TarreDev',
+  title: 'Inmobiliaria - Terrasol',
+  description: 'Aplicación creada para eva_2_CIISA FrontEnd',
 }
 
 export default function RootLayout({

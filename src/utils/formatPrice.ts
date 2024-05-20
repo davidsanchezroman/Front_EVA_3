@@ -1,6 +1,4 @@
 export function formatPrice(price: number) {
-  return Number(price).toLocaleString("es-ES", {
-    style: "currency",
-    currency: "EUR",
-  });
+  return `UF ${price.toLocaleString("es-ES")}`;
 }
+
