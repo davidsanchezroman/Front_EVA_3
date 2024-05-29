@@ -1,5 +1,7 @@
 import { Transition } from "../Transition";
 import Image from "next/image";
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
 export function About() {
     return (
@@ -17,3 +19,35 @@ export function About() {
         </Transition>
     )
 }
+ 
+export function Aboutdata() {
+    const [data, setData] = useState(response.data); // Estado para almacenar los datos de la API
+  
+    useEffect(() => {
+      const apiUrl = 'http://localhost/back-ciisa/api/v2/historia.php';
+      const token = 'get'; // Reemplaza con tu token real (preferiblemente desde una variable de entorno)
+  
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+  
+      axios
+        .get(apiUrl, config)
+        .then((response) => {
+          setData(response.data); // Almacena los datos en el estado
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+        });
+    }, []);
+  
+    return (
+      <div>
+        {/* Renderiza los datos aquí (por ejemplo, en un párrafo o una lista) */}
+        {data && <p>{data}</p>}
+      </div>
+    );
+  }
+ 

@@ -9,28 +9,7 @@ import { useEffect, useState } from 'react';
 
 export function Header() {
     const [openMobileMenu, setOpenMobileMenu] = useState(false);   
-    const [isScrolling, setIsScrolling] = useState(false);
 
-    const handleScroll = () => {
-        if (window.scrollY >= window.innerHeight - 600){
-            setIsScrolling(true)
-
-
-        }else
-        setIsScrolling(false)
-
-
-
-    }
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll)
-        return ()=> {
-            window.removeEventListener("scroll", handleScroll)
-
-        }
-
-    },[])
 
     return (
         <div className="container mx-auto my-5">

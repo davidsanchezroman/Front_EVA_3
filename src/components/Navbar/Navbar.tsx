@@ -4,7 +4,7 @@ import { dataHeader } from "../Header/Header.data";
 import { NavbarProps } from "./Navbar.types";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from 'next/link'; 
-import { log } from "console";
+
 
 export function Navbar(props: NavbarProps) {
     const { openMobileMenu } = props;
@@ -14,20 +14,16 @@ export function Navbar(props: NavbarProps) {
         const handleScroll = () => {
             if (window.scrollY >= window.innerHeight -600) {
                 setIsScrolling(true)
-
             } else {
                 setIsScrolling(false)
-
             }
         }
-
         useEffect(() => {
             window.addEventListener("scroll", handleScroll)
             return () => {
-                window.removeEventListener('scroll', handleScroll)
+                window.removeEventListener("scroll", handleScroll)
         }
         }, [])
-
 
     return (
         <AnimatePresence>
@@ -41,9 +37,9 @@ export function Navbar(props: NavbarProps) {
                 >  
                 <div className="items-center hidden gap-5 md:flex">
                     {dataHeader.map(({id,name,link}) => (
-                        <Link key={id} href={link} className="hover:text-secondary hover:border-b-1[1px] hover:border-secondary">{name}</Link>
+                        <Link key={id} href={link} className="hover:text-secondary hover:border-b-[1px] hover:border-secondary">{name}</Link>
                     ))}
-                <Link href="/contactenos" className="px-3 py-2 text-white bg-secondary hover:bg-black">Contactenos</Link>
+                <Link href="/contactenos" className="px-3 py-2 text-white rounded-lg bg-secondary hover:bg-black">Contactenos</Link>
                 </div>
                 </motion.nav>
             ) : (
@@ -68,10 +64,10 @@ const animationNavbar = {
             stiffness:100,
             damping: 20,
             type: "spring"
+        }
      },
      exit:{
         y: -20,
         opacity: 0
      }
     }
-}
