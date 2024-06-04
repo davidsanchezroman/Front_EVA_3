@@ -6,6 +6,8 @@ import 'leaflet/dist/leaflet.css'
 import { Transition } from "../Transition"
 import { MarkerHouse } from "./MarkerHouse"
 
+
+
 export function Location() {
     const coordinatePoint = {
         lat: -35.707,

@@ -17,17 +17,17 @@ export function JoinCommunity() {
     };
 
     return (
-        <Transition className="grid items-center px-4 py-8 md:py-44 md:grid-cols-2 bg-secondary" id="contacto">
+        <Transition className="grid items-center px-4 py-8 md:py-44 md:grid-cols-2 bg-secondary">
             <h3 className="max-w-lg text-4xl font-semibold text-white">Contactate con nosotros para obtener mas información sobre nuestros proyectos, hay uno esperando por tí.</h3>
             <div className="mt-8">
                 <form onSubmit={handleSubmit} className="grid gap-4">
                     <label className="flex flex-col">
                         <span className="mb-2 text-lg text-white">Nombre:</span>
-                        <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Ingresa tu nombre" className="p-2 rounded-md border border-gray-300" required />
+                        <input autoComplete='name' type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Ingresa tu nombre" className="p-2 rounded-md border border-gray-300" required />
                     </label>
                     <label className="flex flex-col">
                         <span className="mb-2 text-lg text-white">Email:</span>
-                        <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Ingresa tu email" className="p-2 rounded-md border border-gray-300" required />
+                        <input autoComplete='email' type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Ingresa tu email" className="p-2 rounded-md border border-gray-300" required />
                     </label>
                     <label className="flex flex-col">
                         <span className="mb-2 text-lg text-white">Mensaje:</span>

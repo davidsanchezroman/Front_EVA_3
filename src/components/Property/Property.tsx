@@ -1,7 +1,10 @@
 
-import { LiaStarSolid } from "react-icons/lia";
+import { LiaBathSolid, LiaBedSolid, LiaRulerCombinedSolid, LiaStarSolid } from "react-icons/lia";
 import { PropertyProps } from "./Property.types";
 import { formatPrice } from "@/utils/formatPrice";
+import { TfiLocationPin } from "react-icons/tfi";
+import Image from "next/image";
+import { Form } from "../Form";
 
 export function Property(props:PropertyProps) {
     const {house} = props;
@@ -14,13 +17,47 @@ export function Property(props:PropertyProps) {
                     <span>Propiedad {house.id}</span>
                     <span className="font-semibold">{formatPrice(house.price)}</span>
                     </h1>
-                </div>
+                    <div className="flex gap-5 my-4">
+                        <h2 className="flex gap-3 text-xl items-center">
+                        <TfiLocationPin />
+                        {house.location}
+                        </h2>
+                    
                     <div className="flex items-center px-2 py-1 rounded-lg bg-secondary top-2 right-2 text-white">
                         <LiaStarSolid />
                         <span className="ml-1 font-semibold">{house.star}</span>
-                    </div>                
-            </div>
-            <p>{house.location}</p>
+                    </div>
+                    </div>
+                    <Image src ={`/assets/properties/${house.image}`}
+                        alt={`Propiedad en ${house.location}`}
+                        width={1200}
+                        height={1200}
+                        className="w-full h-auto rounded-2xl"
+                        priority
+                    />
+
+                    <div className="gap-4 lg:flex mt-4">
+                    <div className="flex items-center justify-center px-2 py-1 my-1 rounded-lg bg-slate-300">
+                        <LiaBedSolid style={{ fontSize: '1rem' }} /> 
+                        <span className="ml-2">{house.bedrooms}</span>
+                    </div>
+                    <div className="flex items-center justify-center px-2 py-1 my-1 rounded-lg bg-slate-300">
+                        <LiaBathSolid style={{ fontSize: '1rem' }} /> 
+                        <span className="ml-2">{house.bathroom}</span>
+                    </div>
+                    <div className="flex items-center justify-center px-2 py-1 my-1 rounded-lg bg-slate-300">
+                        <LiaRulerCombinedSolid style={{ fontSize: '1rem' }} /> 
+                        <span className="ml-2">{house.meters}</span>
+                    </div>
+                    </div>
+                    <div className="my-3">{house.description}</div>
+
+                </div>
+                
+                    <Form />
+                                    
+            </div>        
+                       
         </main>
     )
 }

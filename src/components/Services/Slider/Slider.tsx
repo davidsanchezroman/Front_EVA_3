@@ -8,7 +8,8 @@ import Image from 'next/image';
 
 export function Slider() {
     return (
-        <Swiper
+        
+        <Swiper id='services'
         slidesPerView={2.5}
         spaceBetween={15}
         freeMode={true}
