@@ -1,54 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Transition } from '../Transition'; // Asegúrate de importar correctamente el componente Transition
-import Image from 'next/image'; // Importa el componente Image de Next.js
+import { Transition } from "../Transition"; 
+import Image from "next/image";
 
-export function About() {
-    const [parcelasData, setParcelasData] = useState([]);
 
-    useEffect(() => {
-        // Hacer la llamada a tu API y actualizar el estado con los datos
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost/back-ciisa/api/v2/historia.php', {
-                    headers: {
-                        // Agrega cualquier encabezado necesario (por ejemplo, token de autorización) aquí
-                        Authorization: 'Bearer get'
-                    },
-                });
-                setParcelasData(response.data.data); // Ajusta la ruta de los datos según la estructura real
-            } catch (error) {
-                console.error('Error al obtener los datos:', error);
-            }
-        };
-
-        fetchData();
-    }, []); // El segundo argumento vacío asegura que se ejecute solo una vez al montar el componente
-
+export function About(){
     return (
-        <Transition className="grid gap-4 px-4 py-8 md:py-44 md:px-36 md:grid-cols-2">
-            <div id='about' className="flex flex-col items-center justify-center max-w-xl mb-7">
-                {parcelasData.map((item) => (
-                    <React.Fragment key={item.id}>
-                        {item.texto === 'titulo' && <h2 className="my-4 text-3xl font-semibold">{item.texto}</h2>}
-                        {item.tipo === 'subtitulo' && <h3 className="text-lg font-semibold">{item.texto}</h3>}
-                        {item.tipo === 'parrafo' && <p className="mb-10 mt-7">{item.texto}</p>}
-                        {item.tipo === 'imagen' && <img src={item.texto} alt="Terrasol Parcelas" />}
-                    </React.Fragment>
-                ))}
-                <button className="px-4 py-3 text-white transition-all duration-200 rounded-lg bg-secondary hover:bg-black">
-                    Cargar más
-                </button>
+        <Transition className="grid px-4 py-7 md:py-44 md:px-36 md:grid-cols-2">
+            <div className="flex flex-col items-center justify-center max-w-xl-mb-7" id="about">
+                <h4 className="my-4 text-secondary text-2xl">Sobre Nosotros</h4>
+                <h2 className="my-4 text-3xl font-semibold">Terrasol Parcelas no solo ofrece tierras, sino también un estilo de vida</h2>
+                <p className="mb-10 mt-7">Terrasol Parcelas emerge como un referente en el mercado inmobiliario de la zona centro sur de Chile, ofreciendo una oportunidad única para aquellos que buscan invertir en la naturaleza y la tranquilidad de este idílico paisaje. Especializados en la venta de parcelas de 5000 metros cuadrados, Terrasol Parcelas facilita el acceso a la propiedad de tierras con una inversión inicial accesible, comenzando desde tan solo 1 millón de pesos.</p>
             </div>
             <div className="flex items-center justify-center">
-                {/* Aquí puedes renderizar otra imagen o componente relacionado */}
+                <Image src="/assets/house.jpeg" alt="nosotros" width={350} height={450} className="w-auto h-auto rounded-lg" priority />
+
             </div>
         </Transition>
-    );
+    )
 }
-
-export default About;
-
 
 
  

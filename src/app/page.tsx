@@ -11,6 +11,7 @@ import dynamic from "next/dynamic"
 
 
 
+
 const LocationMap = dynamic(
   () => import('../components/Location').then(module => module.Location),
   {

@@ -14,8 +14,10 @@ export function Navbar(props: NavbarProps) {
         const handleScroll = () => {
             if (window.scrollY >= window.innerHeight -600) {
                 setIsScrolling(true)
+                    console.log("Scrolling");
             } else {
                 setIsScrolling(false)
+                console.log("Not Scrolling");
             }
         }
         useEffect(() => {
@@ -61,9 +63,9 @@ const animationNavbar = {
         y: 0,
         opacity: 1,
         transition:{
-            stiffness:100,
-            damping: 20,
-            type: "spring"
+        stiffness:100,
+        damping: 20,
+        type: "spring"
         }
      },
      exit:{
